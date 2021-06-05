@@ -1,0 +1,53 @@
+{
+    "products": [
+        {
+          "id": "van1",
+          "image": "/images/blue-vans.jpg",
+          "title": "van-blue",
+          "description": "blue vans",
+          "price": 800,
+          "availableSizes": ["3", "4", "5", "6", "7", "8"]  
+        },
+        {
+            "id": "van2",
+            "image": "/images/orange-vans.jpg",
+            "title": "van-brown",
+            "description": "brown vans",
+            "price": 800,
+            "availableSizes": ["3", "4", "5", "6", "7", "8"]  
+          },
+          {
+            "id": "van3",
+            "image": "/images/blue-white-vans.jpg",
+            "title": "van-white",
+            "description": "white vans",
+            "price": 800,
+            "availableSizes": ["3", "4", "5", "6", "7", "8"]  
+          },
+          {
+            "id": "van4",
+            "image": "/images/black-white-vans.jpg",
+            "title": "black-white",
+            "description": "black white vans",
+            "price": 800,
+            "availableSizes": ["3", "4", "5", "6", "7", "8"]  
+          },
+          {
+            "id": "van3",
+            "image": "/images/purple-vans.jpg",
+            "title": "purple-white",
+            "description": "purple vans",
+            "price": 800,
+            "availableSizes": ["3", "4", "5", "6", "7", "8"]  
+          },
+          {
+            "id": "van3",
+            "image": "/images/violet-vans.jpg",
+            "title": "violet-white",
+            "description": "violet vans",
+            "price": 800,
+            "availableSizes": ["3", "4", "5", "6", "7", "8"]  
+          }
+
+    ]
+}
