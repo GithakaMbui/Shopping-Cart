@@ -33,7 +33,7 @@
             "availableSizes": ["3"]  
           },
           {
-            "id": "van3",
+            "id": "van5",
             "image": "/images/purple-vans.jpg",
             "title": "purple-white",
             "description": "purple vans",
@@ -41,7 +41,7 @@
             "availableSizes": ["5", "8"]  
           },
           {
-            "id": "van3",
+            "id": "van6",
             "image": "/images/violet-vans.jpg",
             "title": "violet-white",
             "description": "violet vans",
