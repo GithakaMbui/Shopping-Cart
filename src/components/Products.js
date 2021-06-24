@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
 import formatCurrency from "../util";
 
+//react toast for fancy success msgs and emojis
+//import toast, { Toaster } from 'react-hot-toast';
+
+
+
+
 export default class Products extends Component {
     render() {
         return (
@@ -20,6 +26,8 @@ export default class Products extends Component {
                                             {formatCurrency(product.price)}
                                         </div>
                                         <button onClick={ () => this.props.addToCart(product)} className="button primary"> Add To Cart </button>
+                                        {/* <button onClick={ () => this.props.someNotification()} > Make me a toast</button> */}
+                                        
                                         
 
                                     </div>

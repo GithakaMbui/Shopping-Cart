@@ -4,6 +4,9 @@ import Filter from "./components/Filter";
 import Products from "./components/Products";
 //feature 1
 
+//react toast for fancy success msgs and emojis
+//import toast, { Toaster } from 'react-hot-toast';
+
 
 import data from "./data.json"
 
@@ -12,19 +15,29 @@ class App extends React.Component {
     super();
     this.state = {
       products: data.products,
-      cartItems: [],
+      cartItems: localStorage.getItem("cartItems")? JSON.parse(localStorage.getItem("cartItems")) : [],
       size:"",
       sort:"",
     };
   }
 
+  createOrder = (order) => {
+    alert("Need to save order for " + order.name);
+  }
   //implementation to remove from Cart
+  //use array_filter to remove selected item
   removeFromCart = (product) => {
     const cartItems = this.state.cartItems.slice();
     this.setState({cartItems: cartItems.filter(x => x.id !== product.id),
     });
     
+    localStorage.setItem("cartItems", JSON.stringify(cartItems.filter(x => x.id !== product.id)));
   };
+
+  // //attempting implemnting toast success message
+  // someNotification = () => {
+  //   toast(" here is your success message");
+  // }
 
   //this part is not working
 
@@ -42,6 +55,7 @@ class App extends React.Component {
       cartItems.push({...product, count: 1 });
     }
     this.setState({cartItems});
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
   };
 
   // addToCart = (product) => {
@@ -131,6 +145,7 @@ class App extends React.Component {
         <main>
           <div className="content">
             <div className="main">
+            
                 <Filter 
                   count={this.state.products.length}
                   size={this.state.size}
@@ -139,16 +154,18 @@ class App extends React.Component {
                   sortProducts={this.sortProducts}
                   >
                 </Filter>
-                <Products products={this.state.products} addToCart={this.addToCart}></Products>
+                <Products products={this.state.products} addToCart={this.addToCart} someNotification={this.someNotification} ></Products>
             </div>
             <div className="sidebar">
-              <Cart cartItems={this.state.cartItems} removeFromCart={this.removeFromCart}/>
+              <Cart cartItems={this.state.cartItems} removeFromCart={this.removeFromCart} createOrder={this.createOrder} />
             </div>
 
           </div>
         </main>
         <footer>
-        Augustin Mbui. All rights Reserved. 
+        Site under Construction! <br></br>
+        
+        2021. Githaka &copy; All rights Reserved. 
         </footer>
       </div>
     );
