@@ -21,12 +21,14 @@ class App extends React.Component {
   //implementation to remove from Cart
   removeFromCart = (product) => {
     const cartItems = this.state.cartItems.slice();
-    this.setState({cartItems: cartItems.filter(x => x._id !== product._id),
+    this.setState({cartItems: cartItems.filter(x => x.id !== product.id),
     });
     
   };
 
   //this part is not working
+
+  //this part is now working
   addToCart = (product) => {
     const cartItems = this.state.cartItems.slice();
     let alreadyInCart = false;
