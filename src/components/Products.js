@@ -6,6 +6,8 @@ import Zoom from "react-reveal/Zoom";
 
 //react toast for fancy success msgs and emojis
 //import toast, { Toaster } from 'react-hot-toast';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -25,10 +27,23 @@ export default class Products extends Component {
         this.setState({ product:null });
     };
 
+
+
     render() {
         const { product } = this.state;
+        //Toastify
+    const successToaster = () =>{
+        toast.success('Succesfully added to Cart...',{
+            position: 'top-left',
+            autoClose: 4000,
+            draggable: false 
+
+        })
+        
+    }
         return (
             <div>
+            <ToastContainer/>
             <Fade bottom cascade={true}>
                 <ul className="products">
                     {this.props.products.map(product => (
@@ -44,8 +59,9 @@ export default class Products extends Component {
                                         <div>
                                             {formatCurrency(product.price)}
                                         </div>
-                                        <button onClick={ () => this.props.addToCart(product)} className="button primary"> Add To Cart </button>
-                                        {/* <button onClick={ () => this.props.someNotification()} > Make me a toast</button> */}
+                                        <button onClick={ () => {this.props.addToCart(product); successToaster() }} className="button primary"> Add To Cart </button>
+                                        {/* <button onClick={() => successToaster()} > Successful</button> */}
+                                        {/* onclick={()=>{ f1(); f2() }} */}
                                         
                                         
 
@@ -79,7 +95,7 @@ export default class Products extends Component {
                                                     {formatCurrency(product.price)}
                                                 </div>
                                                 <button className="button primary" onClick={ ()=>{
-                                                    this.addToCart(product);
+                                                    this.props.addToCart(product);
                                                     this.closeModal();
 
                                                 }                                                    
