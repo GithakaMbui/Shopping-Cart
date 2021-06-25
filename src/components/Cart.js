@@ -2,6 +2,11 @@ import React, { Component } from 'react'
 import formatCurrency from '../util';
 import Fade from 'react-reveal/Fade';
 
+//react toast for fancy success msgs and emojis
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export default class Cart extends Component {
     constructor(props){
@@ -34,9 +39,21 @@ export default class Cart extends Component {
         console.log(cartItems);
         console.log(cartItems.length);
 
+        //toastify warning message
+        const errorToaster = () =>{
+            toast.error('ooh shit you just removed an item from Cart...',{
+                position: 'top-left',
+                autoClose: 4000,
+                draggable: false 
+    
+            })
+            
+        }
+
         //this part is not displaying the number of items in the cart
         return (
             <div>
+            <ToastContainer/>
                 {cartItems.length === 0 ? (
                 <div className="cart cart-header">Cart is empty</div>
                 ) : (
@@ -57,8 +74,8 @@ export default class Cart extends Component {
                                     <div>
                                         <div>{item.title}</div>
                                         <div className="right">
-                                        {formatCurrency(item.price)} * {item.count}
-                                            <button className="button" onClick={ () => this.props.removeFromCart(item)}> Remove </button>
+                                        {formatCurrency(item.price)} * {item.count} {" "}
+                                            <button className="button" onClick={ () => {this.props.removeFromCart(item); errorToaster() }}> Remove </button>
                                         </div>
                                         
                                     </div>
